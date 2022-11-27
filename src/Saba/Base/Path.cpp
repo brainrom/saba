@@ -8,7 +8,7 @@
 #include <algorithm>
 
 #if _WIN32
-#include <Windows.h>
+#include <windows.h>
 #elif __APPLE__
 #include <mach-o/dyld.h>
 #include <unistd.h>
