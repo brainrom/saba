@@ -19,18 +19,18 @@
 namespace saba
 {
 
-	GLProgramObject CreateShaderProgram(const char* vsCode, const char* fsCode);
+    GLProgramObject CreateShaderProgram(const char* vsCode, const char* fsCode);
 
-	void SetUniform(GLint uniform, GLint value);
-	void SetUniform(GLint uniform, float value);
-	void SetUniform(GLint uniform, const glm::vec2& value);
-	void SetUniform(GLint uniform, const glm::vec3& value);
-	void SetUniform(GLint uniform, const glm::vec4& value);
-	void SetUniform(GLint uniform, const glm::mat3& value);
-	void SetUniform(GLint uniform, const glm::mat4& value);
-	void SetUniform(GLint uniform, const GLint* values, GLsizei count);
-	void SetUniform(GLint uniform, const float* values, GLsizei count);
-	void SetUniform(GLint uniform, const glm::mat4* values, GLsizei count);
+    void SetUniform(GLint uniform, GLint value);
+    void SetUniform(GLint uniform, float value);
+    void SetUniform(GLint uniform, const glm::vec2& value);
+    void SetUniform(GLint uniform, const glm::vec3& value);
+    void SetUniform(GLint uniform, const glm::vec4& value);
+    void SetUniform(GLint uniform, const glm::mat3& value);
+    void SetUniform(GLint uniform, const glm::mat4& value);
+    void SetUniform(GLint uniform, const GLint* values, GLsizei count);
+    void SetUniform(GLint uniform, const float* values, GLsizei count);
+    void SetUniform(GLint uniform, const glm::mat4* values, GLsizei count);
 }
 
 #endif // !SABA_GL_SHADERUTIL_H_

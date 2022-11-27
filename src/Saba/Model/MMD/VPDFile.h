@@ -14,28 +14,28 @@
 
 namespace saba
 {
-	struct File;
-	struct VPDBone
-	{
-		std::string	m_boneName;
-		glm::vec3	m_translate;
-		glm::quat	m_quaternion;
-	};
+    struct File;
+    struct VPDBone
+    {
+        std::string m_boneName;
+        glm::vec3   m_translate;
+        glm::quat   m_quaternion;
+    };
 
-	struct VPDMorph
-	{
-		std::string	m_morphName;
-		float		m_weight;
-	};
+    struct VPDMorph
+    {
+        std::string m_morphName;
+        float       m_weight;
+    };
 
-	struct VPDFile
-	{
-		std::vector<VPDBone>	m_bones;
-		std::vector<VPDMorph>	m_morphs;
-	};
+    struct VPDFile
+    {
+        std::vector<VPDBone>    m_bones;
+        std::vector<VPDMorph>   m_morphs;
+    };
 
-	bool ReadVPDFile(VPDFile* vpd, const char* filename);
-	bool ReadVPDFile(VPDFile * vpd, File &f);
+    bool ReadVPDFile(VPDFile* vpd, const char* filename);
+    bool ReadVPDFile(VPDFile * vpd, File &f);
 }
 
 #endif // !SABA_MODEL_MMD_VPDFILE_H_

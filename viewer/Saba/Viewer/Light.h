@@ -10,21 +10,21 @@
 
 namespace saba
 {
-	class Light
-	{
-	public:
-		Light();
+    class Light
+    {
+    public:
+        Light();
 
-		void SetLightColor(const glm::vec3& color);
-		const glm::vec3& GetLightColor() const;
+        void SetLightColor(const glm::vec3& color);
+        const glm::vec3& GetLightColor() const;
 
-		void SetLightDirection(const glm::vec3& dir);
-		const glm::vec3& GetLightDirection() const;
+        void SetLightDirection(const glm::vec3& dir);
+        const glm::vec3& GetLightDirection() const;
 
-	private:
-		glm::vec3	m_lightColor;
-		glm::vec3	m_lightDir;
-	};
+    private:
+        glm::vec3   m_lightColor;
+        glm::vec3   m_lightDir;
+    };
 }
 
 #endif // !SABA_VIEWER_LIGHT_H_

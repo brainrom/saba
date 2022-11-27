@@ -13,53 +13,53 @@
 
 namespace saba
 {
-	class ViewerContext;
+    class ViewerContext;
 
-	struct GLXFileShader
-	{
-		GLSLDefine			m_define;
-		GLProgramObject		m_prog;
+    struct GLXFileShader
+    {
+        GLSLDefine          m_define;
+        GLProgramObject     m_prog;
 
-		// attribute
-		GLint	m_inPos;
-		GLint	m_inNor;
-		GLint	m_inUV;
+        // attribute
+        GLint   m_inPos;
+        GLint   m_inNor;
+        GLint   m_inUV;
 
-		// uniform
-		GLint	m_uWV;
-		GLint	m_uWVP;
-		GLint	m_uWVIT;
-		GLint	m_uDiffuse;
-		GLint	m_uSpecular;
-		GLint	m_uSpecularPower;
-		GLint	m_uEmissive;
-		GLint	m_uLightDir;
-		GLint	m_uLightColor;
-		GLint	m_uTexMode;
-		GLint	m_uTex;
-		GLint	m_uSphereTexMode;
-		GLint	m_uSphereTex;
+        // uniform
+        GLint   m_uWV;
+        GLint   m_uWVP;
+        GLint   m_uWVIT;
+        GLint   m_uDiffuse;
+        GLint   m_uSpecular;
+        GLint   m_uSpecularPower;
+        GLint   m_uEmissive;
+        GLint   m_uLightDir;
+        GLint   m_uLightColor;
+        GLint   m_uTexMode;
+        GLint   m_uTex;
+        GLint   m_uSphereTexMode;
+        GLint   m_uSphereTex;
 
-		void Initialize();
-	};
+        void Initialize();
+    };
 
-	class GLXFileModelDrawContext
-	{
-	public:
-		GLXFileModelDrawContext(ViewerContext* ctxt);
+    class GLXFileModelDrawContext
+    {
+    public:
+        GLXFileModelDrawContext(ViewerContext* ctxt);
 
-		GLXFileModelDrawContext(const GLXFileShader&) = delete;
-		GLXFileModelDrawContext& operator = (const GLXFileShader&) = delete;
+        GLXFileModelDrawContext(const GLXFileShader&) = delete;
+        GLXFileModelDrawContext& operator = (const GLXFileShader&) = delete;
 
-		int GetShaderIndex(const GLSLDefine& define);
-		GLXFileShader* GetShader(int shaderIndex) const;
+        int GetShaderIndex(const GLSLDefine& define);
+        GLXFileShader* GetShader(int shaderIndex) const;
 
-	private:
-		using XFileShaderPtr = std::unique_ptr<GLXFileShader>;
-		ViewerContext*				m_viewerContext;
-		std::vector<XFileShaderPtr>	m_shaders;
+    private:
+        using XFileShaderPtr = std::unique_ptr<GLXFileShader>;
+        ViewerContext*              m_viewerContext;
+        std::vector<XFileShaderPtr> m_shaders;
 
-	};
+    };
 }
 
 #endif // !SABA_GL_MODEL_GLXFILEMODELDRAWCONTEXT_H_

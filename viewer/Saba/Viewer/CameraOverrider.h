@@ -10,17 +10,17 @@
 
 namespace saba
 {
-	class CameraOverrider
-	{
-	public:
-		virtual ~CameraOverrider();
+    class CameraOverrider
+    {
+    public:
+        virtual ~CameraOverrider();
 
-		void Override(ViewerContext* ctxt, Camera* camera);
+        void Override(ViewerContext* ctxt, Camera* camera);
 
-	protected:
-		virtual void OnOverride(ViewerContext* ctxt, Camera* camera) = 0;
+    protected:
+        virtual void OnOverride(ViewerContext* ctxt, Camera* camera) = 0;
 
-	};
+    };
 }
 
 #endif // !SABA_VIEWER_CAMERAOVERRIDER_H_

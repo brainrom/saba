@@ -13,40 +13,40 @@
 
 namespace saba
 {
-	class Grid
-	{
-	public:
-		Grid();
+    class Grid
+    {
+    public:
+        Grid();
 
-		bool Initialize(
-			const ViewerContext& ctxt,
-			float gridSize,
-			int gridCount,
-			int bold
-		);
+        bool Initialize(
+            const ViewerContext& ctxt,
+            float gridSize,
+            int gridCount,
+            int bold
+        );
 
-		void SetWVPMatrix(const glm::mat4 wvp) { m_WVP = wvp; }
+        void SetWVPMatrix(const glm::mat4 wvp) { m_WVP = wvp; }
 
-		void Draw();
+        void Draw();
 
-	private:
-		GLProgramObject	m_prog;
+    private:
+        GLProgramObject m_prog;
 
-		GLVertexArrayObject	m_vao;
+        GLVertexArrayObject m_vao;
 
-		GLint	m_inPos;
-		GLint	m_inColor;
-		GLBufferObject		m_posVBO;
-		GLBufferObject		m_colorVBO;
-		GLsizei						m_vertexCount;
+        GLint   m_inPos;
+        GLint   m_inColor;
+        GLBufferObject      m_posVBO;
+        GLBufferObject      m_colorVBO;
+        GLsizei                     m_vertexCount;
 
-		VertexBinder		m_posBinder;
-		VertexBinder		m_colorBinder;
+        VertexBinder        m_posBinder;
+        VertexBinder        m_colorBinder;
 
-		GLint		m_uWVP;
-		glm::mat4	m_WVP;
+        GLint       m_uWVP;
+        glm::mat4   m_WVP;
 
-	};
+    };
 }
 
 #endif // !SABA_VIEWER_GRID_H_

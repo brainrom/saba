@@ -11,55 +11,55 @@
 
 namespace saba
 {
-	class Camera
-	{
-	public:
-		Camera();
+    class Camera
+    {
+    public:
+        Camera();
 
-		void Initialize(const glm::vec3& center, float radius);
-		void Initialize(const glm::vec3& center, glm::vec3& eye, float nearClip, float farClip, float radius);
+        void Initialize(const glm::vec3& center, float radius);
+        void Initialize(const glm::vec3& center, glm::vec3& eye, float nearClip, float farClip, float radius);
 
-		void Orbit(float x, float y);
-		void Dolly(float z);
-		void Pan(float x, float y);
+        void Orbit(float x, float y);
+        void Dolly(float z);
+        void Pan(float x, float y);
 
-		void LookAt(const glm::vec3& center, const glm::vec3& eye, const glm::vec3& up);
+        void LookAt(const glm::vec3& center, const glm::vec3& eye, const glm::vec3& up);
 
-		void SetFovY(float fovY);
-		void SetSize(float w, float h);
-		void SetClip(float nearClip, float farClip);
+        void SetFovY(float fovY);
+        void SetSize(float w, float h);
+        void SetClip(float nearClip, float farClip);
 
-		void UpdateMatrix();
-		const glm::mat4& GetViewMatrix() const;
-		const glm::mat4& GetProjectionMatrix() const;
+        void UpdateMatrix();
+        const glm::mat4& GetViewMatrix() const;
+        const glm::mat4& GetProjectionMatrix() const;
 
-		glm::vec3 GetEyePostion() const;
-		glm::vec3 GetUp() const;
-		glm::vec3 GetForward() const;
-		float GetFovY() const;
-		float GetNearClip() const;
-		float GetFarClip() const;
-		float GetWidth() const;
-		float GetHeight() const;
+        glm::vec3 GetEyePostion() const;
+        glm::vec3 GetUp() const;
+        glm::vec3 GetForward() const;
+        float GetFovY() const;
+        float GetNearClip() const;
+        float GetFarClip() const;
+        float GetWidth() const;
+        float GetHeight() const;
 
-	private:
-		// View
-		glm::vec3	m_target;
-		glm::vec3	m_eye;
-		glm::vec3	m_up;
-		float		m_radius;
+    private:
+        // View
+        glm::vec3   m_target;
+        glm::vec3   m_eye;
+        glm::vec3   m_up;
+        float       m_radius;
 
-		// Projection
-		float	m_fovYRad;
-		float	m_nearClip;
-		float	m_farClip;
-		float	m_width;
-		float	m_height;
+        // Projection
+        float   m_fovYRad;
+        float   m_nearClip;
+        float   m_farClip;
+        float   m_width;
+        float   m_height;
 
-		// Matrix
-		glm::mat4	m_viewMatrix;
-		glm::mat4	m_projectionMatrix;
-	};
+        // Matrix
+        glm::mat4   m_viewMatrix;
+        glm::mat4   m_projectionMatrix;
+    };
 }
 
 #endif // !SABA_VIEWER_CAMERA_H_

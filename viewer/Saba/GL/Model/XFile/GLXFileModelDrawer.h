@@ -15,45 +15,45 @@
 
 namespace saba
 {
-	class GLXFileModel;
-	class GLXFileModelDrawContext;
+    class GLXFileModel;
+    class GLXFileModelDrawContext;
 
-	class GLXFileModelDrawer : public ModelDrawer
-	{
-	public:
-		GLXFileModelDrawer(GLXFileModelDrawContext* ctxt, std::shared_ptr<GLXFileModel> model);
-		~GLXFileModelDrawer() override;
+    class GLXFileModelDrawer : public ModelDrawer
+    {
+    public:
+        GLXFileModelDrawer(GLXFileModelDrawContext* ctxt, std::shared_ptr<GLXFileModel> model);
+        ~GLXFileModelDrawer() override;
 
-		GLXFileModelDrawer(const GLXFileModelDrawer&) = delete;
-		GLXFileModelDrawer& operator =(const GLXFileModelDrawer&) = delete;
+        GLXFileModelDrawer(const GLXFileModelDrawer&) = delete;
+        GLXFileModelDrawer& operator =(const GLXFileModelDrawer&) = delete;
 
-		bool Create();
-		void Destroy();
+        bool Create();
+        void Destroy();
 
-		ModelDrawerType GetType() const override { return ModelDrawerType::XFileModelDrawer; }
+        ModelDrawerType GetType() const override { return ModelDrawerType::XFileModelDrawer; }
 
-		void Play() override {};
-		void Stop() override {};
+        void Play() override {};
+        void Stop() override {};
 
-		void ResetAnimation(ViewerContext* ctxt) override;
-		void Update(ViewerContext* ctxt) override;
-		void DrawUI(ViewerContext* ctxt) override;
-		void DrawShadowMap(ViewerContext* ctxt, size_t csmIdx) override;
-		void Draw(ViewerContext* ctxt) override;
+        void ResetAnimation(ViewerContext* ctxt) override;
+        void Update(ViewerContext* ctxt) override;
+        void DrawUI(ViewerContext* ctxt) override;
+        void DrawShadowMap(ViewerContext* ctxt, size_t csmIdx) override;
+        void Draw(ViewerContext* ctxt) override;
 
-	private:
-		struct MaterialShader
-		{
-			int					m_shaderIndex;
-			GLVertexArrayObject	m_vao;
-		};
-	private:
-		GLXFileModelDrawContext*		m_drawContext;
-		std::shared_ptr<GLXFileModel>	m_xfileModel;
+    private:
+        struct MaterialShader
+        {
+            int                 m_shaderIndex;
+            GLVertexArrayObject m_vao;
+        };
+    private:
+        GLXFileModelDrawContext*        m_drawContext;
+        std::shared_ptr<GLXFileModel>   m_xfileModel;
 
-		using MaterialShaders = std::vector<MaterialShader>;
-		std::vector<MaterialShaders>	m_materialShaders;
-	};
+        using MaterialShaders = std::vector<MaterialShader>;
+        std::vector<MaterialShaders>    m_materialShaders;
+    };
 }
 
 #endif // !SABA_GL_MODEL_XFile_GLXFileMODELDRAWER_H_

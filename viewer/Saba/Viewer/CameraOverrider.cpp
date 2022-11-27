@@ -2,13 +2,13 @@
 
 namespace saba
 {
-	CameraOverrider::~CameraOverrider()
-	{
-	}
+    CameraOverrider::~CameraOverrider()
+    {
+    }
 
-	void CameraOverrider::Override(ViewerContext* ctxt, Camera* camera)
-	{
-		OnOverride(ctxt, camera);
-	}
+    void CameraOverrider::Override(ViewerContext* ctxt, Camera* camera)
+    {
+        OnOverride(ctxt, camera);
+    }
 }
 

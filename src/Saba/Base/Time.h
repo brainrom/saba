@@ -8,9 +8,9 @@
 
 namespace saba
 {
-	double GetTime();
-	double GetTimeMSec();
-	double GetTimeUSec();
+    double GetTime();
+    double GetTimeMSec();
+    double GetTimeUSec();
 }
 
 #endif // !SABA_BASE_TIME_H_

@@ -13,19 +13,19 @@
 
 namespace saba
 {
-	class VMDCameraOverrider : public CameraOverrider
-	{
-	public:
-		VMDCameraOverrider();
+    class VMDCameraOverrider : public CameraOverrider
+    {
+    public:
+        VMDCameraOverrider();
 
-		bool Create(const VMDFile& vmdFile);
+        bool Create(const VMDFile& vmdFile);
 
-	protected:
-		void OnOverride(ViewerContext* viewer, Camera* camera) override;
+    protected:
+        void OnOverride(ViewerContext* viewer, Camera* camera) override;
 
-	private:
-		VMDCameraAnimation	m_camAnim;
-	};
+    private:
+        VMDCameraAnimation  m_camAnim;
+    };
 }
 
 #endif // !SABA_VIEWER_VMDCAMERAOVERRIDER_H_
