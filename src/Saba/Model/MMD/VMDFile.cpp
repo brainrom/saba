@@ -163,69 +163,69 @@ namespace saba
 
 			return !file.IsBad();
 		}
-
-		bool ReadVMDFile(VMDFile* vmd, File& file)
-		{
-			if (!ReadHeader(vmd, file))
-			{
-				SABA_WARN("ReadHeader Fail.");
-				return false;
-			}
-
-			if (!ReadMotion(vmd, file))
-			{
-				SABA_WARN("ReadMotion Fail.");
-				return false;
-			}
-
-			if (file.Tell() < file.GetSize())
-			{
-				if (!ReadBlednShape(vmd, file))
-				{
-					SABA_WARN("ReadBlednShape Fail.");
-					return false;
-				}
-			}
-
-			if (file.Tell() < file.GetSize())
-			{
-				if (!ReadCamera(vmd, file))
-				{
-					SABA_WARN("ReadCamera Fail.");
-					return false;
-				}
-			}
-
-			if (file.Tell() < file.GetSize())
-			{
-				if (!ReadLight(vmd, file))
-				{
-					SABA_WARN("ReadLight Fail.");
-					return false;
-				}
-			}
-
-			if (file.Tell() < file.GetSize())
-			{
-				if (!ReadShadow(vmd, file))
-				{
-					SABA_WARN("ReadShadow Fail.");
-					return false;
-				}
-			}
-
-			if (file.Tell() < file.GetSize())
-			{
-				if (!ReadIK(vmd, file))
-				{
-					SABA_WARN("ReadIK Fail.");
-					return false;
-				}
-			}
-
-			return true;
-		}
 	}
+
+    bool ReadVMDFile(VMDFile* vmd, File& file)
+    {
+        if (!ReadHeader(vmd, file))
+        {
+            SABA_WARN("ReadHeader Fail.");
+            return false;
+        }
+
+        if (!ReadMotion(vmd, file))
+        {
+            SABA_WARN("ReadMotion Fail.");
+            return false;
+        }
+
+        if (file.Tell() < file.GetSize())
+        {
+            if (!ReadBlednShape(vmd, file))
+            {
+                SABA_WARN("ReadBlednShape Fail.");
+                return false;
+            }
+        }
+
+        if (file.Tell() < file.GetSize())
+        {
+            if (!ReadCamera(vmd, file))
+            {
+                SABA_WARN("ReadCamera Fail.");
+                return false;
+            }
+        }
+
+        if (file.Tell() < file.GetSize())
+        {
+            if (!ReadLight(vmd, file))
+            {
+                SABA_WARN("ReadLight Fail.");
+                return false;
+            }
+        }
+
+        if (file.Tell() < file.GetSize())
+        {
+            if (!ReadShadow(vmd, file))
+            {
+                SABA_WARN("ReadShadow Fail.");
+                return false;
+            }
+        }
+
+        if (file.Tell() < file.GetSize())
+        {
+            if (!ReadIK(vmd, file))
+            {
+                SABA_WARN("ReadIK Fail.");
+                return false;
+            }
+        }
+
+        return true;
+    }
 
 	bool ReadVMDFile(VMDFile * vmd, const char * filename)
 	{

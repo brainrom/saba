@@ -92,6 +92,7 @@ namespace saba
 		std::vector<VMDIk>			m_iks;
 	};
 
+	bool ReadVMDFile(VMDFile* vmd, File& file);
 	bool ReadVMDFile(VMDFile* vmd, const char* filename);
 }
 

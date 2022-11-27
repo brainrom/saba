@@ -593,7 +593,8 @@ namespace saba
 		std::vector<PMXSoftbody>	m_softbodies;
 	};
 
-	bool ReadPMXFile(PMXFile* pmdFile, const char* filename);
+	bool ReadPMXFile(PMXFile * pmxFile, File& file);
+	bool ReadPMXFile(PMXFile * pmxFile, const char* filename);
 }
 
 #endif // !SABA_MODEL_PMXFILE_H_

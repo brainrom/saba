@@ -236,9 +236,15 @@ namespace saba
 		Open(filepath);
 	}
 
+	bool TextFileReader::Open(File &file)
+	{
+		m_file = &file;
+		return true;
+	}
+
 	bool TextFileReader::Open(const char * filepath)
 	{
-		return m_file.OpenText(filepath);
+		return m_file->OpenText(filepath);
 	}
 
 	bool TextFileReader::Open(const std::string & filepath)
@@ -248,12 +254,12 @@ namespace saba
 
 	void TextFileReader::Close()
 	{
-		m_file.Close();
+		m_file->Close();
 	}
 
 	bool TextFileReader::IsOpen()
 	{
-		return m_file.IsOpen();
+		return m_file->IsOpen();
 	}
 
 	std::string TextFileReader::ReadLine()
@@ -266,28 +272,28 @@ namespace saba
 		std::string line;
 		auto outputIt = std::back_inserter(line);
 		int ch;
-		ch = fgetc(m_file.GetFilePointer());
+		ch = fgetc(m_file->GetFilePointer());
 		while (ch != EOF && ch != '\r' && ch != '\n')
 		{
 			line.push_back(ch);
-			ch = fgetc(m_file.GetFilePointer());
+			ch = fgetc(m_file->GetFilePointer());
 		}
 		if (ch != EOF)
 		{
 			if (ch == '\r')
 			{
-				ch = fgetc(m_file.GetFilePointer());
+				ch = fgetc(m_file->GetFilePointer());
 				if (ch != EOF && ch != '\n')
 				{
-					ungetc(ch, m_file.GetFilePointer());
+					ungetc(ch, m_file->GetFilePointer());
 				}
 			}
 			else
 			{
-				ch = fgetc(m_file.GetFilePointer());
+				ch = fgetc(m_file->GetFilePointer());
 				if (ch != EOF)
 				{
-					ungetc(ch, m_file.GetFilePointer());
+					ungetc(ch, m_file->GetFilePointer());
 				}
 			}
 		}
@@ -312,13 +318,13 @@ namespace saba
 	{
 		std::string all;
 
-		if (m_file.IsOpen())
+		if (m_file->IsOpen())
 		{
-			int ch = fgetc(m_file.GetFilePointer());
+			int ch = fgetc(m_file->GetFilePointer());
 			while (ch != EOF)
 			{
 				all.push_back(ch);
-				ch = fgetc(m_file.GetFilePointer());
+				ch = fgetc(m_file->GetFilePointer());
 			}
 		}
 		return all;
@@ -326,11 +332,11 @@ namespace saba
 
 	bool TextFileReader::IsEof()
 	{
-		if (!m_file.IsOpen())
+		if (!m_file->IsOpen())
 		{
 			return false;
 		}
-		return m_file.IsEOF();
+		return m_file->IsEOF();
 	}
 }
 

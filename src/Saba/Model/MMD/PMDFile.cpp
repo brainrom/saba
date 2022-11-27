@@ -433,112 +433,112 @@ namespace saba
 
 			return !file.IsBad();
 		}
+    }
 
-		bool ReadPMDFile(PMDFile* pmdFile, File& file)
-		{
-			if (!ReadHeader(pmdFile, file))
-			{
-				SABA_ERROR("ReadHeader Fail.");
-				return false;
-			}
+    bool ReadPMDFile(PMDFile* pmdFile, File& file)
+    {
+        if (!ReadHeader(pmdFile, file))
+        {
+            SABA_ERROR("ReadHeader Fail.");
+            return false;
+        }
 
-			if (!ReadVertex(pmdFile, file))
-			{
-				SABA_ERROR("ReadVertex Fail.");
-				return false;
-			}
+        if (!ReadVertex(pmdFile, file))
+        {
+            SABA_ERROR("ReadVertex Fail.");
+            return false;
+        }
 
-			if (!ReadFace(pmdFile, file))
-			{
-				SABA_ERROR("ReadFace Fail.");
-				return false;
-			}
+        if (!ReadFace(pmdFile, file))
+        {
+            SABA_ERROR("ReadFace Fail.");
+            return false;
+        }
 
-			if (!ReadMaterial(pmdFile, file))
-			{
-				SABA_ERROR("ReadMaterial Fail.");
-				return false;
-			}
+        if (!ReadMaterial(pmdFile, file))
+        {
+            SABA_ERROR("ReadMaterial Fail.");
+            return false;
+        }
 
-			if (!ReadBone(pmdFile, file))
-			{
-				SABA_ERROR("ReadBone Fail.");
-				return false;
-			}
+        if (!ReadBone(pmdFile, file))
+        {
+            SABA_ERROR("ReadBone Fail.");
+            return false;
+        }
 
-			if (!ReadIK(pmdFile, file))
-			{
-				SABA_ERROR("ReadIK Fail.");
-				return false;
-			}
+        if (!ReadIK(pmdFile, file))
+        {
+            SABA_ERROR("ReadIK Fail.");
+            return false;
+        }
 
-			if (!ReadBlendShape(pmdFile, file))
-			{
-				SABA_ERROR("ReadBlendShape Fail.");
-				return false;
-			}
+        if (!ReadBlendShape(pmdFile, file))
+        {
+            SABA_ERROR("ReadBlendShape Fail.");
+            return false;
+        }
 
-			if (!ReadBlendShapeDisplayList(pmdFile, file))
-			{
-				SABA_ERROR("ReadBlendShapeDisplayList Fail.");
-				return false;
-			}
+        if (!ReadBlendShapeDisplayList(pmdFile, file))
+        {
+            SABA_ERROR("ReadBlendShapeDisplayList Fail.");
+            return false;
+        }
 
-			if (!ReadBoneDisplayList(pmdFile, file))
-			{
-				SABA_ERROR("ReadBoneDisplayList Fail.");
-				return false;
-			}
+        if (!ReadBoneDisplayList(pmdFile, file))
+        {
+            SABA_ERROR("ReadBoneDisplayList Fail.");
+            return false;
+        }
 
-			size_t toonTexIdx = 1;
-			for (auto& toonTexName : pmdFile->m_toonTextureNames)
-			{
-				std::stringstream ss;
-				ss << "toon" << std::setfill('0') << std::setw(2) << toonTexIdx << ".bmp";
-				std::string name = ss.str();
-				toonTexName.Set(name.c_str());
-				toonTexIdx++;
-			}
+        size_t toonTexIdx = 1;
+        for (auto& toonTexName : pmdFile->m_toonTextureNames)
+        {
+            std::stringstream ss;
+            ss << "toon" << std::setfill('0') << std::setw(2) << toonTexIdx << ".bmp";
+            std::string name = ss.str();
+            toonTexName.Set(name.c_str());
+            toonTexIdx++;
+        }
 
-			if (file.Tell() < file.GetSize())
-			{
-				if (!ReadExt(pmdFile, file))
-				{
-					SABA_ERROR("ReadExt Fail.");
-					return false;
-				}
-			}
+        if (file.Tell() < file.GetSize())
+        {
+            if (!ReadExt(pmdFile, file))
+            {
+                SABA_ERROR("ReadExt Fail.");
+                return false;
+            }
+        }
 
-			if (file.Tell() < file.GetSize())
-			{
-				if (!ReadToonTextureName(pmdFile, file))
-				{
-					SABA_ERROR("ReadToonTextureName Fail.");
-					return false;
-				}
-			}
+        if (file.Tell() < file.GetSize())
+        {
+            if (!ReadToonTextureName(pmdFile, file))
+            {
+                SABA_ERROR("ReadToonTextureName Fail.");
+                return false;
+            }
+        }
 
-			if (file.Tell() < file.GetSize())
-			{
-				if (!ReadRigidBodyExt(pmdFile, file))
-				{
-					SABA_ERROR("ReadRigidBodyExt Fail.");
-					return false;
-				}
-			}
+        if (file.Tell() < file.GetSize())
+        {
+            if (!ReadRigidBodyExt(pmdFile, file))
+            {
+                SABA_ERROR("ReadRigidBodyExt Fail.");
+                return false;
+            }
+        }
 
-			if (file.Tell() < file.GetSize())
-			{
-				if (!ReadJointExt(pmdFile, file))
-				{
-					SABA_ERROR("ReadJointExt Fail.");
-					return false;
-				}
-			}
+        if (file.Tell() < file.GetSize())
+        {
+            if (!ReadJointExt(pmdFile, file))
+            {
+                SABA_ERROR("ReadJointExt Fail.");
+                return false;
+            }
+        }
 
-			return true;
-		}
-	}
+        return true;
+    }
 
 	bool ReadPMDFile(PMDFile* pmdFile, const char * filename)
 	{

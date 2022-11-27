@@ -18,6 +18,7 @@
 
 namespace saba
 {
+	class PMDFile;
 	class PMDModel : public MMDModel
 	{
 	public:
@@ -61,6 +62,7 @@ namespace saba
 		void Update() override;
 		void SetParallelUpdateHint(uint32_t) override {}
 
+		bool Load(PMDFile &pmd, const std::string& dirPath, const std::string& mmdDataDir);
 		bool Load(const std::string& filepath, const std::string& mmdDataDir);
 		void Destroy();
 

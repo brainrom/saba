@@ -34,12 +34,12 @@ namespace saba
 		bool Create(const std::string& filepath) { return Create(filepath.c_str()); }
 		bool CreateText(const std::string& filepath) { return CreateText(filepath.c_str()); }
 
-		void Close();
-		bool IsOpen();
+		void Close();  //unused outsied File
+		bool IsOpen(); //unused outsied File and TextFileReader
 		Offset GetSize() const;
 		bool IsBad() const;
-		void ClearBadFlag();
-		bool IsEOF();
+		void ClearBadFlag(); //unused
+		bool IsEOF(); //unused
 
 		FILE* GetFilePointer() const;
 
@@ -108,7 +108,7 @@ namespace saba
 	private:
 		bool OpenFile(const char* filepath, const char* mode);
 
-	private:
+	protected:
 		FILE*	m_fp;
 		Offset	m_fileSize;
 		bool	m_badFlag;
@@ -123,6 +123,7 @@ namespace saba
 
 		bool Open(const char* filepath);
 		bool Open(const std::string& filepath);
+		bool Open(File &file);
 		void Close();
 		bool IsOpen();
 
@@ -132,7 +133,7 @@ namespace saba
 		bool IsEof();
 
 	private:
-		saba::File	m_file;
+		saba::File     *m_file;
 	};
 }
 

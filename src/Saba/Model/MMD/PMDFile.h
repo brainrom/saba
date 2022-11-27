@@ -191,6 +191,7 @@ namespace saba
 		std::vector<PMDJointExt>		m_joints;
 	};
 
+	bool ReadPMDFile(PMDFile* pmdFile, File& file);
 	bool ReadPMDFile(PMDFile* pmdFile, const char* filename);
 
 }

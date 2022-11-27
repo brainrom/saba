@@ -326,15 +326,19 @@ namespace saba
 
 	bool PMXModel::Load(const std::string& filepath, const std::string& mmdDataDir)
 	{
-		Destroy();
-
 		PMXFile pmx;
 		if (!ReadPMXFile(&pmx, filepath.c_str()))
 		{
 			return false;
 		}
-
 		std::string dirPath = PathUtil::GetDirectoryName(filepath);
+		return Load(pmx, dirPath, mmdDataDir);
+	}
+
+
+	bool PMXModel::Load(PMXFile &pmx, const std::string& dirPath, const std::string& mmdDataDir)
+	{
+		Destroy();
 
 		size_t vertexCount = pmx.m_vertices.size();
 		m_positions.reserve(vertexCount);

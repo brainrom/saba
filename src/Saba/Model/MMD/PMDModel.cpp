@@ -298,17 +298,22 @@ namespace saba
 		}
 	}
 
-	bool PMDModel::Load(const std::string& filepath, const std::string& mmdDataDir)
-	{
+    bool PMDModel::Load(const std::string& filepath, const std::string& mmdDataDir)
+    {
+        PMDFile pmd;
+        if (!ReadPMDFile(&pmd, filepath.c_str()))
+        {
+            return false;
+        }
+        std::string dirPath = PathUtil::GetDirectoryName(filepath);
+        return Load(pmd, dirPath, mmdDataDir);
+    }
+
+
+    bool PMDModel::Load(PMDFile &pmd, const std::string& dirPath, const std::string& mmdDataDir)
+    {
 		Destroy();
 
-		PMDFile pmd;
-		if (!ReadPMDFile(&pmd, filepath.c_str()))
-		{
-			return false;
-		}
-
-		std::string dirPath = PathUtil::GetDirectoryName(filepath);
 
 		size_t vertexCount = pmd.m_vertices.size();
 		m_positions.reserve(vertexCount);

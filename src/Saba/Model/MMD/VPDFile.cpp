@@ -15,13 +15,32 @@
 
 namespace saba
 {
+
 	bool ReadVPDFile(VPDFile * vpd, const char * filename)
 	{
-		
-		TextFileReader file;
+		File file;
 		if (!file.Open(filename))
 		{
-			SABA_INFO("VPD File Open Fail. {}", filename);
+			SABA_INFO("PMX File Open Fail. {}", filename);
+			return false;
+		}
+		if (!ReadVPDFile(vpd, file))
+		{
+			SABA_INFO("PMX File Read Fail. {}", filename);
+			return false;
+		}
+		SABA_INFO("PMX File Read Successed. {}", filename);
+
+		return true;
+	}
+
+
+	bool ReadVPDFile(VPDFile * vpd, File &f)
+	{
+		TextFileReader file;
+		if (!file.Open(f))
+		{
+			SABA_INFO("VPD File Open Fail.");
 			return false;
 		}
 

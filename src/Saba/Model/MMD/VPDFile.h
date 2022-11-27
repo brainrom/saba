@@ -14,6 +14,7 @@
 
 namespace saba
 {
+	struct File;
 	struct VPDBone
 	{
 		std::string	m_boneName;
@@ -34,6 +35,7 @@ namespace saba
 	};
 
 	bool ReadVPDFile(VPDFile* vpd, const char* filename);
+	bool ReadVPDFile(VPDFile * vpd, File &f);
 }
 
 #endif // !SABA_MODEL_MMD_VPDFILE_H_
