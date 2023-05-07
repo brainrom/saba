@@ -6,7 +6,7 @@
 #include "UnicodeUtil.h"
 
 #include <stdexcept>
-
+#include <stdint.h>
 namespace saba
 {
 	std::wstring ToWString(const std::string & utf8Str)
